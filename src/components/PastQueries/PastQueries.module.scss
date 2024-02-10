@@ -1,0 +1,56 @@
+@use "./../../styles/variables.scss";
+@use "./../../styles/mixins.scss";
+
+.drawer {
+  width: 25rem;
+  height: 100%;
+  @include mixins.flex(column);
+}
+.drawer_header {
+  width: 100%;
+}
+.tabs {
+  width: calc(100% - 3rem);
+  padding: 1.5rem;
+  button {
+    width: 50%;
+  }
+  border-bottom: 1px solid variables.$gray-color-300;
+}
+.header {
+  @include mixins.flex(row, space-between, center);
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+.search_input {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+.queries {
+  min-height: 100px;
+  overflow: scroll;
+}
+.query {
+  @include mixins.flex(column);
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid variables.$gray-color-300;
+  cursor: pointer;
+
+  &:hover {
+    background-color: variables.$gray-color-100;
+  }
+}
+.query_time {
+  font-size: small;
+}
+.query_title {
+  font-size: small;
+  font-weight: bold;
+}
+.error {
+  @include mixins.flex(column, center, center);
+  gap: 0.5rem;
+  height: 20rem;
+}
+.drawer_title {
+  margin: 0;
+}
