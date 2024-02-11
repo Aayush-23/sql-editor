@@ -1,8 +1,9 @@
-# React + Vite
+SQL Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is an online SQL editor that enables users to run SQL queries in an online editor and analyze the output obtained as a result of running the queries.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Data
+
+I have taken some data in the form of JSON of some tables. Also, I have written a function that generates the data on run time where we can pass the number of rows we need. This function I created to do a stress test on my application as It was very difficult to find a table of data which has 250K rows
+
