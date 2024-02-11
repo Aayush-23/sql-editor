@@ -17,7 +17,7 @@ const PastQueries = ({
   setShowPastQueries,
 }) => {
   const [queryParams, setQueryParams] = useSearchParams();
-  const [currentTab, setCurrentTab] = useState("history");
+  const [currentTab, setCurrentTab] = useState("collections");
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleClose = () => {

@@ -61,14 +61,17 @@ const getColumns = (data) => {
   return columns;
 };
 
-export const getResults = (fileName) => {
+export const getResults = (fileName, limit) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       const name = fileName.toLowerCase();
-
-      const rows = fileData.hasOwnProperty(name)
-        ? fileData[name]
-        : getData(250000);
+      let rows = [];
+      if (fileData.hasOwnProperty(name)) {
+        rows = fileData[name];
+      } else {
+        const count = Math.min(limit, 250000);
+        rows = getData(count);
+      }
       const headers = getColumns(rows);
       resolve({ rows, headers });
     }, 100);
@@ -84,6 +87,11 @@ export const HISTORY = [
   { query: "Select * from orders", id: crypto.randomUUID(), date: Date.now() },
   {
     query: "Select * from products",
+    id: crypto.randomUUID(),
+    date: Date.now(),
+  },
+  {
+    query: "Select * from users",
     id: crypto.randomUUID(),
     date: Date.now(),
   },
@@ -106,6 +114,24 @@ export const COLLECTIONS = [
     query: "Select * from products",
     id: crypto.randomUUID(),
     title: "Products",
+    date: Date.now(),
+  },
+  {
+    query: "Select * from products",
+    id: crypto.randomUUID(),
+    title: "Users",
+    date: Date.now(),
+  },
+  {
+    query: "Select * from order_details",
+    id: crypto.randomUUID(),
+    title: "Order Details",
+    date: Date.now(),
+  },
+  {
+    query: "Select * from something limit 250000",
+    id: crypto.randomUUID(),
+    title: "Stress Test",
     date: Date.now(),
   },
 ];
