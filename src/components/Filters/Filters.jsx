@@ -25,6 +25,7 @@ const Filters = ({
 
   const onSubmit = () => {
     applyFilters(filters);
+    onClose();
   };
 
   const handleAddFilter = () => {
@@ -46,6 +47,17 @@ const Filters = ({
   };
 
   const columns = Object.keys(headers || {});
+
+  const valid = filters.reduce((res, currFilter) => {
+    if (
+      currFilter.column &&
+      currFilter.value &&
+      currFilter.value.trim().length
+    ) {
+      return res;
+    }
+    return false;
+  }, true);
 
   return (
     <Dialog open onClose={onClose}>
@@ -93,11 +105,16 @@ const Filters = ({
           ))}
         </div>
       </DialogContent>
-      <DialogActions className={styles.modal_footer} onClick={onClose}>
-        <Button variant="outlined" color="error">
+      <DialogActions className={styles.modal_footer}>
+        <Button variant="outlined" color="error" onClick={onClose}>
           Cancel
         </Button>
-        <Button variant="outlined" color="primary" onClick={onSubmit}>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={onSubmit}
+          disabled={!valid}
+        >
           Apply
         </Button>
       </DialogActions>

@@ -19,6 +19,7 @@ const ColumnFilter = ({ headers, setShowColumnFilter, setHeaders }) => {
 
   const onSubmit = () => {
     setHeaders(columns);
+    onClose();
   };
 
   return (
@@ -45,8 +46,8 @@ const ColumnFilter = ({ headers, setShowColumnFilter, setHeaders }) => {
           ))}
         </div>
       </DialogContent>
-      <DialogActions className={styles.modal_footer} onClick={onClose}>
-        <Button variant="outlined" color="error">
+      <DialogActions className={styles.modal_footer}>
+        <Button variant="outlined" color="error" onClick={onClose}>
           Cancel
         </Button>
         <Button variant="outlined" color="primary" onClick={onSubmit}>

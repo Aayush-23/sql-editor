@@ -23,14 +23,17 @@ const SaveQuery = ({ query, onClose, onSave }) => {
           />
         </div>
       </DialogContent>
-      <DialogActions className={styles.modal_footer} onClick={onClose}>
-        <Button variant="outlined" color="error">
+      <DialogActions className={styles.modal_footer}>
+        <Button variant="outlined" color="error" onClick={onClose}>
           Cancel
         </Button>
         <Button
           variant="outlined"
           color="primary"
-          onClick={() => onSave(queryName)}
+          onClick={() => {
+            onSave(queryName);
+            onClose();
+          }}
           disabled={queryName.trim().length == 0}
         >
           Save
