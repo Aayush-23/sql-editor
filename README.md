@@ -35,3 +35,33 @@ I have taken some data in the form of JSON of some tables. Also, I have written 
 
 <li>Sharable Query - Share the queries effortlessly by copying and sharing the URL.</li>
 </ul>
+
+<h3>Optimisations -</h3>
+<ul>
+  <li>Implemented virtualization using the react-virtuoso that will keep the performance fast in case very large amount of data is present</li>
+  <li>Memoised the table component to stop rerendering on every props change using useMemo hook</li>
+  <li>Avoided creating a state for everything, instead of that used refs which will store the data, and will not rerender the application</li>
+</ul>
+
+<h3>Performance -</h3>
+<ul>
+  <li><a href="https://pagespeed.web.dev/analysis/https-sql-editor-phi-vercel-app/6tw46slo94?form_factor=desktop">PageSpeed Insights</a> - The website scored 100 in performance, Accessibility, Best Practices, and SEO. The exact matrices are here: <ul>
+    <li>First Contentful Paint - 0.5S</li>
+    <li>Largest Contentful Paint - 0.5S</li>
+    <li>Total Blocking Time - 0</li>
+    <li>
+      Cumulative Layout Shift - 0
+    </li>
+    <li>Speed Index - 0.5</li>
+  </ul></li>
+  <ul>According to the network the load time of the website is 300ms</ul>
+</ul>
+
+<h3>Future Work -</h3>
+<ul>
+  <li>Create a server to load the results from an API, and write all the JSON present on the client which increases the memory</li>
+  <li>Validation on the form input, We can add validations on all the inputs for a better user experience</li>
+  <li>To analyze the data better we can give different types of operators like equal, not equals, in, not in</li>
+  <li>Sorting of rows based on columns</li>
+</ul>
+
