@@ -30,9 +30,12 @@ const ColumnFilter = ({ headers, setShowColumnFilter, setHeaders }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={columns[key]}
+                  checked={columns[key].visible}
                   onChange={(_, value) => {
-                    setColumns({ ...columns, [key]: value });
+                    setColumns({
+                      ...columns,
+                      [key]: { ...columns[key], visible: value },
+                    });
                   }}
                 />
               }

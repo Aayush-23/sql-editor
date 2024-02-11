@@ -41,14 +41,38 @@ const getData = (count) => {
   return data;
 };
 
+const getColumns = (data) => {
+  const columns = data.reduce((prevVal, row) => {
+    const rowHeaders = Object.entries(row).reduce((temp, [header, value]) => {
+      const currentTextSize = toString(value).length;
+      const previousMaxWidth = temp[header]?.maxWidth || 0;
+      const maxWidth = Math.max(currentTextSize, previousMaxWidth);
+
+      return {
+        ...temp,
+        [header]: {
+          visible: true,
+          maxWidth: maxWidth,
+        },
+      };
+    }, {});
+    return { ...prevVal, ...rowHeaders };
+  }, {});
+  return columns;
+};
+
 export const getResults = (fileName) => {
-  const name = fileName.toLowerCase();
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const name = fileName.toLowerCase();
 
-  if (fileData.hasOwnProperty(name)) {
-    return fileData[name];
-  }
-
-  return getData(250000);
+      const rows = fileData.hasOwnProperty(name)
+        ? fileData[name]
+        : getData(250000);
+      const headers = getColumns(rows);
+      resolve({ rows, headers });
+    }, 100);
+  });
 };
 
 export const HISTORY = [

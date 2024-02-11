@@ -22,6 +22,8 @@ const Table = ({ columns = [], rows }) => {
             align={column.numeric || false ? "right" : "left"}
             sx={{
               backgroundColor: "background.paper",
+              fontWeight: "bold",
+              width: `${column.width}ch`,
             }}
           >
             <div className={styles.header}>{column.label}</div>
@@ -38,7 +40,7 @@ const Table = ({ columns = [], rows }) => {
           <TableCell
             key={column.dataKey}
             align={column.numeric || false ? "right" : "left"}
-            sx={{ overflowWrap: "break-word" }}
+            sx={{ overflowWrap: "break-word", width: `${column.width}ch` }}
           >
             {row[column.dataKey]}
           </TableCell>
@@ -58,7 +60,9 @@ const Table = ({ columns = [], rows }) => {
       />
     ),
     TableHead,
-    TableRow: ({ item, ...props }) => <TableRow {...props} />,
+    TableRow: ({ item, ...props }) => (
+      <TableRow {...props} className={styles.row} />
+    ),
     TableBody: React.forwardRef((props, ref) => (
       <TableBody {...props} ref={ref} />
     )),
@@ -71,6 +75,8 @@ const Table = ({ columns = [], rows }) => {
       components={TableComponents}
       fixedHeaderContent={fixedHeaderContent}
       itemContent={rowContent}
+      className={styles.table}
+      style={{ height: "calc(100% - 3.5rem)" }}
     />
   );
 };

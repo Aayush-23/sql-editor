@@ -10,8 +10,27 @@
   padding: 1rem;
 }
 .no_data_found {
-  height: 100%;
+  height: calc(100% - 3.5rem);
   width: 100%;
   @include mixins.flex(column, center, center);
   gap: 1rem;
+  border: 1px solid variables.$gray-color-300;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+.initial_no_data {
+  height: 100%;
+  border-radius: 0.5rem;
+}
+.loader {
+  height: 100%;
+  width: 100%;
+  @include mixins.flex(row, center, center);
+}
+.header {
+  padding: 0.5rem 1.5rem;
+  @include mixins.flex(row, space-between, center);
+  h2 {
+    margin: 0;
+    font-size: large;
+  }
 }

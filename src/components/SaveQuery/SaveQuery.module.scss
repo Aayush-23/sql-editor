@@ -1,27 +1,23 @@
 @use "./../../styles/variables.scss";
 @use "./../../styles/mixins.scss";
 
-.columns_modal {
+.save_form {
   max-height: 20rem;
   min-height: 10rem;
+  padding: 1rem;
   width: 30rem;
-  @include mixins.flex(column, flex-start);
-  padding: 1rem 0;
+  @include mixins.flex(column);
   gap: 1rem;
 }
 .modal_header {
   border-bottom: 1px solid variables.$gray-color-300;
+  font-weight: bolder;
 }
 .modal_footer {
   border-top: 1px solid variables.$gray-color-300;
 }
-.filter_container {
-  @include mixins.flex(row, space-between, center);
-  gap: 1rem;
-}
-.column_select {
-  width: 15rem;
-}
-.add_filter__button {
-  width: 8rem;
+.query_label {
+  background-color: variables.$gray-color-100;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }

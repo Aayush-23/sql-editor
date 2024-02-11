@@ -52,7 +52,11 @@ const Filters = ({
       <DialogTitle className={styles.modal_header}>Filter Data</DialogTitle>
       <DialogContent>
         <div className={styles.columns_modal}>
-          <Button variant="outlined" onClick={handleAddFilter}>
+          <Button
+            className={styles.add_filter__button}
+            variant="outlined"
+            onClick={handleAddFilter}
+          >
             Add Filter
           </Button>
           {filters.map((filter) => (
