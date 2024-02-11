@@ -40,8 +40,13 @@ const SqlPage = () => {
     try {
       setLoading(true);
       const tableNameMatch = query.match(/\bfrom\s+(\w+)\b/i);
+      const limitMatch = query.match(/\blimit\s+(\d+)\b/i);
       const tableName = (tableNameMatch && tableNameMatch[1]) || "default";
-      const { rows, headers: updatedHeaders } = await getResults(tableName);
+      const limit = (limitMatch && parseInt(limitMatch[1])) || 10000;
+      const { rows, headers: updatedHeaders } = await getResults(
+        tableName,
+        limit
+      );
       dataRef.current = rows;
       setRows(rows);
       setHeaders(updatedHeaders);
