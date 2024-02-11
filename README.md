@@ -34,6 +34,7 @@ I have taken some data in the form of JSON of some tables. Also, I have written 
 <li>Search in Data - Refine your data exploration process with advanced search capabilities. Specify columns to search for specific values, making data discovery more efficient.</li>
 
 <li>Sharable Query - Share the queries effortlessly by copying and sharing the URL.</li>
+<li><b>Render Large Datasets</b> - You can render large datasets, I have tested this on 250k rows. You can also check this out using this query -  <pre>select * from something limit 250000</pre></li>
 </ul>
 
 <h3>Optimisations -</h3>
