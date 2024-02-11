@@ -14,6 +14,7 @@ import { downloadFile } from "../../utility/commons";
 
 const SqlPage = () => {
   const [loading, setLoading] = useState(false);
+  const [enableFullScreen, setEnableFullScreen] = useState(false);
   const [rows, setRows] = useState([]);
   const [headers, setHeaders] = useState({});
   const [showColumnFilter, setShowColumnFilter] = useState(false);
@@ -115,11 +116,14 @@ const SqlPage = () => {
           Past Queries
         </Button>
       </div>
+
       <Query
+        enableFullScreen={enableFullScreen}
         runQuery={runQuery}
         addQuerytoHistory={addQuerytoHistory}
         addQuerytoCollections={addQuerytoCollections}
       />
+
       <div className={styles.table_container}>
         {!loading && (
           <>
@@ -129,6 +133,8 @@ const SqlPage = () => {
                 setShowFilters={setShowFilters}
                 downloadData={downloadData}
                 size={rows.length}
+                setEnableFullScreen={setEnableFullScreen}
+                enableFullScreen={enableFullScreen}
               />
             )}
             {rows.length > 0 && <Table rows={rows} columns={columns} />}

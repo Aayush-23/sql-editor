@@ -5,7 +5,12 @@ import { Button } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import SaveQuery from "../SaveQuery";
 
-const Query = ({ runQuery, addQuerytoHistory, addQuerytoCollections }) => {
+const Query = ({
+  enableFullScreen,
+  runQuery,
+  addQuerytoHistory,
+  addQuerytoCollections,
+}) => {
   const DEFAULT_QUERY = "select * from products";
   const [showSaveQuery, setShowSaveQuery] = useState(false);
   const [query, setQuery] = useState(DEFAULT_QUERY);
@@ -58,7 +63,11 @@ const Query = ({ runQuery, addQuerytoHistory, addQuerytoCollections }) => {
   const disabled = query.trim().length === 0;
 
   return (
-    <div className={styles.query_container}>
+    <div
+      className={`${styles.query_container} ${
+        enableFullScreen ? styles.hide_query : ""
+      }`}
+    >
       <TextareaAutosize
         className={styles.query_textarea}
         value={query}

@@ -20,3 +20,6 @@
   @include mixins.flex(row, flex-end, center);
   gap: 0.5rem;
 }
+.hide_query {
+  display: none;
+}
