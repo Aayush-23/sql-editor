@@ -82,9 +82,6 @@ const Table = ({ columns = [], rows }) => {
 };
 
 function areEqual(prevProps, nextProps) {
-  console.log(
-    prevProps.columns === nextProps.columns && prevProps.rows === nextProps.rows
-  );
   // Check if columns and rows are equal
   return (
     prevProps.columns === nextProps.columns && prevProps.rows === nextProps.rows
